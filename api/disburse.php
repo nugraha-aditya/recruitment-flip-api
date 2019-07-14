@@ -25,8 +25,8 @@ if(
 ){
     $bank_code = $data->bank_code;
     $account_number = $data->account_number;
-    $remark = $data->amount;
-    $amount = $data->remark;
+    $amount = $data->amount;
+    $remark = $data->remark;
 
     $dbconn = new DBConnection();
     $conn = $dbconn->getConnection();
@@ -39,7 +39,12 @@ if(
     $result = $disburse->insertDB();
 }
 
-//http_response_code(200)
+if ($result['status'] == "success") {
+  http_response_code(200);
+} else {
+  http_response_code(500);
+}
+
 echo json_encode($result);
 
  ?>

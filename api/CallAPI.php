@@ -47,7 +47,7 @@ class CallAPI{
 
   public function callApiDisbursementStatus($transaction_id){
     $this->method = "GET";
-    $this->url = $this->url."/".$transaction_id;
+    $this->url = "".$this->url."/".$transaction_id;
 
     $curl = curl_init();
 

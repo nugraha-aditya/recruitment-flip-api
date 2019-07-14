@@ -31,6 +31,11 @@ if(
 }
 
 //http_response_code(200)
+if ($result['status'] == "success") {
+  http_response_code(200);
+} else {
+  http_response_code(500);
+}
 echo json_encode($result);
 
  ?>

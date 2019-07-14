@@ -49,12 +49,12 @@ class Disbursement{
 
     if ($this->conn->query($sql) === TRUE) {
         return array(
-          "status" => 200,
+          "status" => "success",
           "result" => "Disbursement successful. Data is saved to database"
         );
     } else {
       return array(
-        "status" => 500,
+        "status" => "error",
         "result" => "Error. Disbursement not successful. ".$this->conn->error
       );
     }
@@ -62,17 +62,16 @@ class Disbursement{
   }
 
 public function updateDB(){
-  $sql = "UPDATE disbursement SET receipt = '$this->receipt',status = '$this->status',time_served = '$this->time_served'
-   WHERE transact_id = '$this->transact_id'";
+  $sql = "UPDATE disbursement SET receipt = '$this->receipt',status = '$this->status',time_served = '$this->time_served' WHERE transact_id = '$this->transact_id'";
 
    if ($this->conn->query($sql) === TRUE) {
        return array(
-         "status" => 200,
+         "status" => "success",
          "result" => "Update Disbursement successful. Data is saved to database"
        );
    } else {
      return array(
-       "status" => 500,
+       "status" => "error",
        "result" => "Error. Update Disbursement not successful. ".$this->conn->error
      );
    }
